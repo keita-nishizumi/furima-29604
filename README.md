@@ -41,15 +41,14 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :items, through: :transactions
-- has_many :cards
 - has_many :postals
+- has_many :orders
 
 ## items table
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
-| user_id                | references | null: false, foreign_key: true |
+| user                   | references | null: false, foreign_key: true |
 | name                   | string     | null: false                    |
 | information_text       | text       | null: false                    |
 | category_id            | integer    | null: false                    |
@@ -62,30 +61,30 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :transaction
+- has_one :order
 
-## cards table
+## orders table
 
-| Column    | Type       | Options     |
-| --------- | ---------- | ----------- |
-| user_id   | references | null: false |
-| number    | string     | null: false |
-| exp_month | string     | null: false |
-| exp_year  | string     | null: false |
-| cvc       | string     | null: false |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
+belongs_to :user
+belongs_to :item
+has_one :postal
 
 ## postals table
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 | postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| city          | integer    | null: false                    |
+| city          | string     | null: false                    |
 | addresses     | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
@@ -93,19 +92,4 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-
-## transactions table
-
-| Column    | Type | Options                              |
-| --------- | ---- | ------------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| item_id   | references | null: false, foreign_key: true |
-| card_id   | references | null: false, foreign_key: true |
-| postal_id | references | null: false, foreign_key: true |
-
-### Association
-
-belongs_to :user
-belongs_to :item
-belongs_to :card
-belongs_to :postal
+- belongs_to :order
