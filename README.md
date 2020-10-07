@@ -41,7 +41,6 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :postals
 - has_many :orders
 
 ## items table
@@ -80,7 +79,6 @@ has_one :postal
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
 | order         | references | null: false, foreign_key: true |
 | postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
@@ -91,5 +89,4 @@ has_one :postal
 
 ### Association
 
-- belongs_to :user
 - belongs_to :order
