@@ -9,6 +9,7 @@ ja:
         last_name_kana: 名（フリガナ）
         birth_date: 誕生日
       item:
+        user: 出品者
         name: 商品名
         information_text: 商品の説明
         category_id: カテゴリー

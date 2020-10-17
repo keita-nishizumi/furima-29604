@@ -20,7 +20,7 @@ class User < ApplicationRecord
   # ユーザー情報のvalidation
   EMAIL_REGEX = /.+@.+/.freeze
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  
+
   validates_format_of :email, with: EMAIL_REGEX, message: 'には@を含めて設定してください'
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数字混合で設定してください'
   validates :password, length: { minimum: 6 }

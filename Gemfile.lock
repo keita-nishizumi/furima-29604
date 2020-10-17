@@ -298,6 +298,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4)
   pry-rails
   puma (~> 3.11)
+  rack-test
   rails (~> 6.0.0)
   rails-i18n
   rails_12factor
