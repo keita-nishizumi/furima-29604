@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :items
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,7 +21,6 @@ class User < ApplicationRecord
   EMAIL_REGEX = /.+@.+/.freeze
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
 
-  validates :email, uniqueness: { case_sensitive: true }
   validates_format_of :email, with: EMAIL_REGEX, message: 'には@を含めて設定してください'
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数字混合で設定してください'
   validates :password, length: { minimum: 6 }
