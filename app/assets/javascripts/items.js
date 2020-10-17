@@ -9,9 +9,6 @@ const item = () => {
     const profit = document.getElementById('profit');
     profit.innerHTML = itemPrice.value - fee;
   })
-
-  const profit = document.getElementById('profit');
-  profit.innerHTML = 'aaa';
 }
 
 item();
