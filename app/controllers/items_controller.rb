@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :redirect_to_root, only: [:edit, :update]
 
   def index
     @items = Item.all.order(created_at: 'DESC')
@@ -41,5 +42,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.includes([:user, :image_attachment]).find(params[:id])
+  end
+
+  def redirect_to_root
+    redirect_to :root unless @item.user == current_user
   end
 end
