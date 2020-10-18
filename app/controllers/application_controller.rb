@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def use_auth?
-    unless controller_name == 'items' && action_name.in?([ 'index', 'show' ])
+    unless controller_name == 'items' && action_name.in?(%w[index show])
       puts controller_name
       puts action_name
       true
