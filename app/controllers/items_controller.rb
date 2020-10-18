@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all.order(created_at: 'DESC')
@@ -25,6 +25,14 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def update
+    if @item.update(item_params)
+      render :show
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
@@ -32,6 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.includes(:user).find(params[:id])
+    @item = Item.includes([:user, :image_attachment]).find(params[:id])
   end
 end
