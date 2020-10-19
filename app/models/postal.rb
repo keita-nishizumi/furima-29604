@@ -4,7 +4,7 @@ class Postal < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   POSTAL_CODE_REGEX = /\A\d{3}[-]\d{4}\z/.freeze
-  PHONE_NUMBER_REGEX = /\d{1, 11}/
+  PHONE_NUMBER_REGEX = /\A\d{1,11}\z/.freeze
 
   with_options presence: true do
     validates :order

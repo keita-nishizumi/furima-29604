@@ -19,3 +19,15 @@ ja:
         scheduled_delivery_id: 発送までの日数
         sell_price: 価格
         image: 出品画像
+      order:
+        user: 購入者
+        item: 商品
+        token: トークン
+      postal:
+        order: 注文
+        order_id: 注文
+        postal_code: 郵便番号
+        prefecture_id: 県
+        city: 市区町村
+        addresses: 番地
+        phone_number: 電話番号
