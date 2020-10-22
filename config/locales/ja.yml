@@ -27,7 +27,19 @@ ja:
         order: 注文
         order_id: 注文
         postal_code: 郵便番号
-        prefecture_id: 県
+        prefecture_id: 都道府県
         city: 市区町村
         addresses: 番地
+        phone_number: 電話番号
+  activemodel:
+    attributes:
+      transaction:
+        user: 購入者
+        item: 商品
+        token: クレジットカード情報
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        addresses: 番地
+        building: 建物名
         phone_number: 電話番号

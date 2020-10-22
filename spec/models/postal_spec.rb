@@ -32,7 +32,7 @@ RSpec.describe Postal, type: :model do
       it "県が選択なし（値：0）では作成できない" do
         @postal.prefecture_id = 0
         @postal.valid?
-        expect(@postal.errors.full_messages).to include('県を選択してください')
+        expect(@postal.errors.full_messages).to include('都道府県を選択してください')
       end
       it "電話番号に半角数字以外が含まれると作成できない" do
         @postal.phone_number = "1234567890a"

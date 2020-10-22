@@ -22,11 +22,6 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include('商品を入力してください')
       end
-      it 'トークンが無ければ作成できない' do
-        @order.token = nil
-        @order.valid?
-        expect(@order.errors.full_messages).to include('トークンを入力してください')
-      end
     end
   end
 end
