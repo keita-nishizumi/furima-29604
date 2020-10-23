@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
-  before_action :set_item, only: [:new, :create]
+  before_action :set_item
+  before_action :redirect_to_root
 
   def new
   end
@@ -17,12 +18,12 @@ class TransactionsController < ApplicationController
 
   private
 
-  def redirect_to_root
-    redirect_to :root unless current_user != @item.user && @item&.order.nil?
-  end
-
   def set_item
     @item = Item.find(params[:item_id])
+  end
+
+  def redirect_to_root
+    redirect_to :root unless current_user != @item.user && !(@item&.order)
   end
 
   def transaction_params
