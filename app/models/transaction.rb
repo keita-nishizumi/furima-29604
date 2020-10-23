@@ -19,9 +19,6 @@ class Transaction
 
   def save
     order = Order.create(user: user, item: item)
-    binding.pry
     Postal.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id, city: city, addresses: addresses, building: building, phone_number: phone_number)
-    binding.pry
   end
-
 end
