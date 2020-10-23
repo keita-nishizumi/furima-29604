@@ -33,9 +33,11 @@ const pay = () => {
       XHR.responseType = "json";
       XHR.send(formData);
       XHR.onload = () => {
-        if (XHR.status != 200) {
+        if (XHR.status !== 200) {
           alert(`Error ${XHR.status}: ${XHR.statusText}`);
-          return null;
+          form.submit();
+        } else if (!(XHR.response)) {
+          form.submit();
         } else {
           alert(XHR.response.message);
           window.location.href = '/';
