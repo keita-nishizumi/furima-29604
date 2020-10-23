@@ -19,6 +19,8 @@ const pay = () => {
         const form = document.getElementById('charge-form');
         const tokenObj = `<input value=${token} name='token' type='hidden'>`;
         form.insertAdjacentHTML("beforeend", tokenObj);
+      } else {
+        form.submit();
       }
       document.getElementById("card-number").removeAttribute("name");
       document.getElementById("card-cvc").removeAttribute("name");
