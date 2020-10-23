@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
   end
 
   def redirect_to_root
-    redirect_to :root unless current_user != @item.user && !(@item&.order)
+    redirect_to :root unless current_user != @item.user && !@item&.order
   end
 
   def transaction_params
