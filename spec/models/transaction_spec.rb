@@ -10,6 +10,9 @@ RSpec.describe Transaction, type: :model do
       it 'トークンが生成できており、住所が正しく入力されていれば登録できる' do
         expect(@transaction).to be_valid
       end
+      it '建物名が空でも登録できる' do
+        expect(@transaction).to be_valid
+      end
     end
     context '購入手続きができないとき' do
       context 'クレジットカード情報が正しく入力されていないとき' do
