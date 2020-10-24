@@ -18,7 +18,7 @@ RSpec.describe Item, type: :model do
         columns.each do |col|
           nihongo = I18n.t "activerecord.attributes.item.#{col}"
           it "#{nihongo}が無ければ登録できない" do
-            item_nil_validation(@item, col, nihongo)
+            not_nil_validation(@item, col, nihongo)
           end
         end
 

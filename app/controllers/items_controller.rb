@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :redirect_to_root, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.all.order(created_at: 'DESC')
+    @items = Item.includes(:order).order(created_at: 'DESC')
   end
 
   def new
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.includes([:user, :image_attachment]).find(params[:id])
+    @item = Item.includes([:user, :image_attachment, :order]).find(params[:id])
   end
 
   def redirect_to_root
