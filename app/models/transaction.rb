@@ -1,7 +1,6 @@
 class Transaction
   include ActiveModel::Model
   attr_accessor :user, :item, :token, :postal_code, :prefecture_id, :city, :addresses, :building, :phone_number
-  # belongs_to_active_hash :prefecture
 
   POSTAL_CODE_REGEX = /\A\d{3}[-]\d{4}\z/.freeze
   PHONE_NUMBER_REGEX = /\A\d{1,11}\z/.freeze
